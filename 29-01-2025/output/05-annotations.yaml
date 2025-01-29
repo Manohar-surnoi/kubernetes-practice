@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+  namespace: manoshop
+  labels:
+    module: backend
+    environment: web
+    managed: manohar
+  annotations:
+    description: "Den of Kubernetes"
+    maintainer: "manohar"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
