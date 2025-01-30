@@ -7,3 +7,5 @@ data:
   APP_NAME: "nginx:2.0."
   APP_VERSION: "3.0.0"
   DATABASE_URL: "mysql://db.example.com:4034"
+
+# If we want to update configMap in server first we need to delete Pods attached to it (Inject.configMap)
