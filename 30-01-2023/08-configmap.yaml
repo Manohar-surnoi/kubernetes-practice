@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx
+  namespace: manoshop
+data:
+  APP_NAME: "nginx:1.0"
+  APP_VERSION: "2.0.0"
+  DATABASE_URL: "mysql://db.example.com:4000"

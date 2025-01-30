@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: manoshop
+  labels:
+    name: nginx-service
+    app: backend
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "300m"
+      limits:
+        memory: "1024Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: manoshop
+spec:
+  type: LoadBalancer
+  selector:
+    name: nginx-service
+    app: backend
+  ports:
+  - protocol: TCP
+    port: 80 #service-port
+    targetPort: 80 #service-port
