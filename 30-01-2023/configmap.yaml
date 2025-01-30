@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nginx
+  namespace: manoshop
 data:
   course: AI/ML
   duration: "120hrs"
