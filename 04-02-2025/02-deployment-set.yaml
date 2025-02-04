@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: manoshop
+  labels: # deployment-set labels
+    name: nginx
+    app: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels: # deployment-set labels
+      name: nginx
+      app: frontend
+  template: # pod defination
+    metadata:
+      labels: # pod labels
+        name: nginx
+        app: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "300m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+            - containerPort: 80      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  namespace: manoshop
+spec:
+  type: LoadBalancer
+  selector:
+    name: nginx
+    app: frontend
+  ports:
+  - protocol: TCP
+    port: 80 #service-port
+    targetPort: 80 #container-port
