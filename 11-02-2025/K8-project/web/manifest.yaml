@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: web
-  namespace: robokart
+  namespace: manoshop
 data:
   nginx.conf: |
     user www-data;
@@ -113,7 +113,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web
-  namespace: robokart 
+  namespace: manoshop
   labels:
     name: web
     project: robokart
@@ -153,7 +153,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: web
-  namespace: robokart
+  namespace: manoshop
 spec:
   type: LoadBalancer # NodePort
   selector:

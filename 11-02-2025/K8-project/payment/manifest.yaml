@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: payment
-  namespace: robokart
+  namespace: manoshop
 type: Opaque
 data:
   AMQP_USER: cm9ib3Nob3A=
@@ -12,7 +12,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: payment
-  namespace: robokart
+  namespace: manoshop
   labels: # these labels are deployment labels
     app: payment
     project: robokart
@@ -43,7 +43,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: payment
-  namespace: robokart
+  namespace: manoshop
 spec:
   selector:
     app: payment

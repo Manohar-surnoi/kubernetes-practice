@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: user
-  namespace: robokart
+  namespace: manoshop
 data:
   MONGO: "true"
 ---
@@ -10,7 +10,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: user
-  namespace: robokart 
+  namespace: manoshop
   labels:
     name: user
     project: robokart
@@ -41,7 +41,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: user
-  namespace: robokart
+  namespace: manoshop
 spec:
   selector:
     name: user

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mysql
-  namespace: robokart
+  namespace: manoshop
 data:
   MYSQL_DATABASE: "cities"
 ---
@@ -10,7 +10,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: mysql
-  namespace: robokart
+  namespace: manoshop
 type: Opaque
 data:
   MYSQL_ROOT_PASSWORD: Um9ib1Nob3BAMQ==
@@ -21,7 +21,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-  namespace: robokart 
+  namespace: manoshop
   labels:
     name: mysql
     project: robokart
@@ -54,7 +54,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql
-  namespace: robokart
+  namespace: manoshop
 spec:
   selector:
     name: mysql

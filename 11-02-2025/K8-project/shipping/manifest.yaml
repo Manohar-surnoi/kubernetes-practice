@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: shipping
-  namespace: robokart
+  namespace: manoshop
 data:
   CART_ENDPOINT: "cart:8080"
   DB_HOST: "mysql"
@@ -11,7 +11,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: shipping
-  namespace: robokart 
+  namespace: manoshop
   labels:
     name: shipping
     project: robokart
@@ -42,7 +42,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: shipping
-  namespace: robokart
+  namespace: manoshop
 spec:
   selector:
     name: shipping
